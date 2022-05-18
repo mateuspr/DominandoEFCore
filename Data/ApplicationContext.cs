@@ -7,15 +7,15 @@ namespace Curso.Data
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<Funcionario> Funcionario { get; set; }
-        public DbSet<Departamento> Departamento { get; set; }
+        public DbSet<Funcionario> Funcionarios { get; set; }
+        public DbSet<Departamento> Departamentos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            const string strConnection = "Data source=(localdb)\\mssqlocaldb;Initial Catalog=CursoEF;Integrated Security=true;polling=true";
+            const string strConnection = "Data source=MPR\\SQLEXPRESS;Initial Catalog=CursoEF;Integrated Security=true;pooling=false";
             optionsBuilder.UseSqlServer(strConnection)
-                        .EnableSensitiveDataLogging()
-                        .LogTo(Console.WriteLine, LogLevel.Information);
+                          .EnableSensitiveDataLogging();
+            //.LogTo(Console.WriteLine, LogLevel.Information);
         }
     }
 }
