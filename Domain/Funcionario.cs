@@ -6,6 +6,7 @@ namespace Curso.Domain
         public string Nome { get; set; }
         public string CPF { get; set; }
         public string RG { get; set; }
+        public string Excluido { get; set; }
         public int DepartamentoId { get; set; }
         public virtual Departamento Departamento { get; set; }
     }

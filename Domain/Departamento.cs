@@ -9,6 +9,7 @@ namespace Curso.Domain
         public int Id { get; set; }
         public string Descricao { get; set; }
         public bool Ativo { get; set; }
+        public bool Excluido { get; set; }
 
         private List<Funcionario> _funcionarios;
         public List<Funcionario> Funcionarios
