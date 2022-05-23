@@ -172,7 +172,7 @@ namespace Curso.Modulos
                 db.Departamentos.AddRange(
                     new Departamento
                     {
-                        Ativo = true,
+                        //Ativo = true,
                         Descricao = "Departamento 01",
                         Funcionarios = new List<Funcionario>
                         {
@@ -187,7 +187,7 @@ namespace Curso.Modulos
                     },
                     new Departamento
                     {
-                        Ativo = true,
+                        //Ativo = true,
                         Descricao = "Departamento 02",
                         Funcionarios = new List<Funcionario>
                         {

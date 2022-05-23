@@ -63,7 +63,13 @@ namespace EFCore
             //Procedures.ConsultaViaProcedure();
             #endregion
 
-
+            #region Infraestrutura
+            //Infraestrutura.ConsultarDepartamentos();
+            //Infraestrutura.DadosSensiveis();
+            //Infraestrutura.HabilitandoBatchSize();
+            //Infraestrutura.TempoComandoGeral();
+            //Infraestrutura.ExecutarEstrategiaResiliencia();
+            #endregion
         }
 
         #region Migrações
