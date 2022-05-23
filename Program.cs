@@ -53,8 +53,17 @@ namespace EFCore
             //Consultas.ConsultaInterpolada();
             //Consultas.ConsultaComTAG();
             //Consultas.EntendendoConsulta1NN1();
-            Consultas.DivisaoDeConsulta();
+            //Consultas.DivisaoDeConsulta();
             #endregion
+
+            #region Procedures
+            //Procedures.CriarStoredProcedure();
+            //Procedures.InserirDadosViaProcedure();
+            //Procedures.CriarStoredProcedureDeConsulta();
+            //Procedures.ConsultaViaProcedure();
+            #endregion
+
+
         }
 
         #region Migrações

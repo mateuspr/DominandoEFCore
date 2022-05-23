@@ -13,9 +13,10 @@ namespace Curso.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             const string strConnection = "Data source=MPR\\SQLEXPRESS;Initial Catalog=CursoEF;Integrated Security=true;pooling=false;MultipleActiveResultSets=true";
-            optionsBuilder.UseSqlServer(strConnection, p => p.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery))
+            optionsBuilder.UseSqlServer(strConnection)
+                          //.UseSqlServer(strConnection, p => p.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery))
                           //.UseLazyLoadingProxies()
-                          //.EnableSensitiveDataLogging()
+                          .EnableSensitiveDataLogging()
                           .LogTo(Console.WriteLine, LogLevel.Information);
         }
 
