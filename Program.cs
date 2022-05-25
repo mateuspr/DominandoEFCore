@@ -70,6 +70,23 @@ namespace EFCore
             //Infraestrutura.TempoComandoGeral();
             //Infraestrutura.ExecutarEstrategiaResiliencia();
             #endregion
+
+            #region Modelo de Dados
+            //ModeloDados.Collations();
+            //ModeloDados.PropagarDados();
+            //ModeloDados.Esquema();
+            //ModeloDados.ConversorDeValor();
+            //ModeloDados.ConversorCustomizado();
+            //ModeloDados.PropriedadesDeSombra();
+            //ModeloDados.TrabalhandoComPropriedadesDeSombra();
+            //ModeloDados.TiposDePropriedades();
+            //ModeloDados.Relacionamento1Para1();
+            //ModeloDados.Relacionamento1ParaMuitos();
+            //ModeloDados.RelacionamentoMuitosParaMuitos();
+            //ModeloDados.CampoDeApoio();
+            //ModeloDados.ExemploTPH();
+            //ModeloDados.PacotesDePropriedades();
+            #endregion
         }
 
         #region Migrações

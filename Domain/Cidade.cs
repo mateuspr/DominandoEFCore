@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Curso.Domain
 {
     public class Cidade
