@@ -87,6 +87,10 @@ namespace EFCore
             //ModeloDados.ExemploTPH();
             //ModeloDados.PacotesDePropriedades();
             #endregion
+
+            #region DataAnnotations
+            Atributos.Atributo();
+            #endregion
         }
 
         #region Migrações

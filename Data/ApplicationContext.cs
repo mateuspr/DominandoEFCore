@@ -27,6 +27,9 @@ namespace Curso.Data
         public DbSet<Pessoa> Pessoas { get; set; }
         public DbSet<Instrutor> Instrutores { get; set; }
         public DbSet<Aluno> Alunos { get; set; }
+        public DbSet<Atributo> Atributos { get; set; }
+        public DbSet<Aeroporto> Aeroportos { get; set; }
+
         #endregion
 
 
@@ -123,9 +126,9 @@ namespace Curso.Data
 
             //modelBuilder.ApplyConfiguration(new ClienteConfiguration());
             //modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            //modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationContext).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationContext).Assembly);
 
-            /*modelBuilder.SharedTypeEntity<Dictionary<string, object>>("Configuracoes", b =>
+            modelBuilder.SharedTypeEntity<Dictionary<string, object>>("Configuracoes", b =>
             {
                 b.Property<int>("Id");
 
@@ -136,7 +139,7 @@ namespace Curso.Data
                 b.Property<string>("Valor")
                     .HasColumnType("VARCHAR(255)")
                     .IsRequired();
-            });*/
+            });
             #endregion
 
         }
