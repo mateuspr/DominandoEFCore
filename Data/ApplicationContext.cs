@@ -55,6 +55,7 @@ namespace Curso.Data
                           //.UseLazyLoadingProxies()
                           .EnableSensitiveDataLogging()
                           //.EnableDetailedErrors()
+                          .AddInterceptors(new Interceptadores.InterceptadorPersistencia())
                           .LogTo(Console.WriteLine, LogLevel.Information);
         }
 

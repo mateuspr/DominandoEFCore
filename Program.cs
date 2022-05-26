@@ -97,7 +97,12 @@ namespace EFCore
             //Funcoes.FuncaoLike();
             //Funcoes.FuncaoDataLength();
             //Funcoes.FuncaoProperty();
-            Funcoes.FuncaoCollate();
+            //Funcoes.FuncaoCollate();
+            #endregion
+
+            #region Interceptação
+            //Interceptacao.TesteInterceptacao();
+            //Interceptacao.TesteInterceptacaoSaveChanges();
             #endregion
         }
 
