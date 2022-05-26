@@ -11,6 +11,7 @@ namespace Curso.Modulos
 {
     public static class Consultas
     {
+        /*
         public static void DivisaoDeConsulta()
         {
             using var db = new Curso.Data.ApplicationContext();
@@ -48,7 +49,7 @@ namespace Curso.Modulos
                 Console.WriteLine($"Nome: {funcionario.Nome} / Departamento: {funcionario.Departamento.Descricao}");
             }
 
-            /*var departamentos = db.Departamentos
+            var departamentos = db.Departamentos
                 .Include(p => p.Funcionarios)
                 .ToList();
 
@@ -59,138 +60,138 @@ namespace Curso.Modulos
                 {
                     Console.WriteLine($"\tNome: {funcionario.Nome}");
                 }
-            }*/
-        }
+            
+    }
 
-        public static void ConsultaComTAG()
+    public static void ConsultaComTAG()
+    {
+        using var db = new ApplicationContext();
+        //Setup(db);
+
+        var departamentos = db.Departamentos
+            .TagWith(@"Estou enviando um comentario para o servidor")
+            .ToList();
+
+        foreach (var departamento in departamentos)
         {
-            using var db = new ApplicationContext();
-            //Setup(db);
+            Console.WriteLine($"Descrição: {departamento.Descricao}");
+        }
+    }
 
-            var departamentos = db.Departamentos
-                .TagWith(@"Estou enviando um comentario para o servidor")
-                .ToList();
+    public static void ConsultaInterpolada()
+    {
+        using var db = new Curso.Data.ApplicationContext();
+        //Setup(db);
 
-            foreach (var departamento in departamentos)
+        var id = 1;
+        var departamentos = db.Departamentos
+            .FromSqlInterpolated($"SELECT * FROM Departamentos WHERE Id>{id}")
+            .ToList();
+
+        foreach (var departamento in departamentos)
+        {
+            Console.WriteLine($"Descrição: {departamento.Descricao}");
+        }
+    }
+
+    public static void ConsultaParametrizada()
+    {
+        using var db = new ApplicationContext();
+        //Setup(db);
+
+        var id = new SqlParameter
+        {
+            Value = 1,
+            SqlDbType = SqlDbType.Int
+        };
+
+        var departamentos = db.Departamentos
+            .FromSqlRaw("SELECT * FROM Departamentos WHERE Id>{0}", id)
+            .Where(p => !p.Excluido)
+            .ToList();
+
+        foreach (var departamento in departamentos)
+        {
+            Console.WriteLine($"Descrição: {departamento.Descricao}");
+        }
+    }
+
+    public static void ConsultaProjetada()
+    {
+        using var db = new Curso.Data.ApplicationContext();
+        Setup(db);
+
+        var departamentos = db.Departamentos
+            .Where(p => p.Id > 0)
+            .Select(p => new { p.Descricao, Funcionarios = p.Funcionarios.Select(f => f.Nome) })
+            .ToList();
+
+        foreach (var departamento in departamentos)
+        {
+            Console.WriteLine($"Descrição: {departamento.Descricao}");
+
+            foreach (var funcionario in departamento.Funcionarios)
             {
-                Console.WriteLine($"Descrição: {departamento.Descricao}");
+                Console.WriteLine($"\t Nome: {funcionario}");
             }
         }
+    }
 
-        public static void ConsultaInterpolada()
+    public static void IgnoreFiltroGlobal()
+    {
+        using var db = new Curso.Data.ApplicationContext();
+        Setup(db);
+
+        var departamentos = db.Departamentos.IgnoreQueryFilters()
+                                            .Where(p => p.Id > 0)
+                                            .ToList();
+
+        foreach (var departamento in departamentos)
         {
-            using var db = new Curso.Data.ApplicationContext();
-            //Setup(db);
-
-            var id = 1;
-            var departamentos = db.Departamentos
-                .FromSqlInterpolated($"SELECT * FROM Departamentos WHERE Id>{id}")
-                .ToList();
-
-            foreach (var departamento in departamentos)
-            {
-                Console.WriteLine($"Descrição: {departamento.Descricao}");
-            }
+            Console.WriteLine($"Descrição: {departamento.Descricao} \t Excluido: {departamento.Excluido}");
         }
+    }
 
-        public static void ConsultaParametrizada()
+    public static void FiltroGlobal()
+    {
+        using var db = new Curso.Data.ApplicationContext();
+        //Setup(db);
+
+        var departamentos = db.Departamentos.Where(p => p.Id > 0)
+                                            .ToList();
+
+        foreach (var departamento in departamentos)
         {
-            using var db = new ApplicationContext();
-            //Setup(db);
-
-            var id = new SqlParameter
-            {
-                Value = 1,
-                SqlDbType = SqlDbType.Int
-            };
-
-            var departamentos = db.Departamentos
-                .FromSqlRaw("SELECT * FROM Departamentos WHERE Id>{0}", id)
-                .Where(p => !p.Excluido)
-                .ToList();
-
-            foreach (var departamento in departamentos)
-            {
-                Console.WriteLine($"Descrição: {departamento.Descricao}");
-            }
+            Console.WriteLine($"Descrição: {departamento.Descricao} \t Excluido: {departamento.Excluido}");
         }
+    }
 
-        public static void ConsultaProjetada()
+    static void Setup(ApplicationContext db)
+    {
+        if (db.Database.EnsureCreated())
         {
-            using var db = new Curso.Data.ApplicationContext();
-            Setup(db);
-
-            var departamentos = db.Departamentos
-                .Where(p => p.Id > 0)
-                .Select(p => new { p.Descricao, Funcionarios = p.Funcionarios.Select(f => f.Nome) })
-                .ToList();
-
-            foreach (var departamento in departamentos)
-            {
-                Console.WriteLine($"Descrição: {departamento.Descricao}");
-
-                foreach (var funcionario in departamento.Funcionarios)
+            db.Departamentos.AddRange(
+                new Departamento
                 {
-                    Console.WriteLine($"\t Nome: {funcionario}");
-                }
-            }
-        }
-
-        public static void IgnoreFiltroGlobal()
-        {
-            using var db = new Curso.Data.ApplicationContext();
-            Setup(db);
-
-            var departamentos = db.Departamentos.IgnoreQueryFilters()
-                                                .Where(p => p.Id > 0)
-                                                .ToList();
-
-            foreach (var departamento in departamentos)
-            {
-                Console.WriteLine($"Descrição: {departamento.Descricao} \t Excluido: {departamento.Excluido}");
-            }
-        }
-
-        public static void FiltroGlobal()
-        {
-            using var db = new Curso.Data.ApplicationContext();
-            //Setup(db);
-
-            var departamentos = db.Departamentos.Where(p => p.Id > 0)
-                                                .ToList();
-
-            foreach (var departamento in departamentos)
-            {
-                Console.WriteLine($"Descrição: {departamento.Descricao} \t Excluido: {departamento.Excluido}");
-            }
-        }
-
-        static void Setup(ApplicationContext db)
-        {
-            if (db.Database.EnsureCreated())
-            {
-                db.Departamentos.AddRange(
-                    new Departamento
+                    //Ativo = true,
+                    Descricao = "Departamento 01",
+                    Funcionarios = new List<Funcionario>
                     {
-                        //Ativo = true,
-                        Descricao = "Departamento 01",
-                        Funcionarios = new List<Funcionario>
-                        {
                             new Funcionario
                             {
                                 Nome = "Rafael Almeida",
                                 CPF = "99999999911",
                                 RG= "2100062"
                             }
-                        },
-                        Excluido = true
                     },
-                    new Departamento
+                    Excluido = true
+                },
+                new Departamento
+                {
+                    //Ativo = true,
+                    Descricao = "Departamento 02",
+                    Funcionarios = new List<Funcionario>
                     {
-                        //Ativo = true,
-                        Descricao = "Departamento 02",
-                        Funcionarios = new List<Funcionario>
-                        {
                             new Funcionario
                             {
                                 Nome = "Bruno Brito",
@@ -203,12 +204,13 @@ namespace Curso.Modulos
                                 CPF = "77777777711",
                                 RG= "1100062"
                             }
-                        }
-                    });
+                    }
+                });
 
-                db.SaveChanges();
-                db.ChangeTracker.Clear();
-            }
+            db.SaveChanges();
+            db.ChangeTracker.Clear();
         }
+    }
+    */
     }
 }

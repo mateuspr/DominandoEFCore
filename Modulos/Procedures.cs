@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Curso.Modulos
 {
     public static class Procedures
-    {
+    {/*
         public static void ConsultaViaProcedure()
         {
             using var db = new ApplicationContext();
@@ -24,7 +24,6 @@ namespace Curso.Modulos
                 Console.WriteLine(departamento.Descricao);
             }
         }
-
 
         public static void CriarStoredProcedureDeConsulta()
         {
@@ -67,6 +66,6 @@ namespace Curso.Modulos
 
             db.Database.ExecuteSqlRaw(criarDepartamento);
         }
-
+    */
     }
 }

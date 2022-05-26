@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Curso.Modulos
 {
     public static class TiposCarregamento
-    {
+    {/*
         public static void CarregamentoAdiantado()
         {
 
@@ -145,6 +145,6 @@ namespace Curso.Modulos
                 db.ChangeTracker.Clear();
             }
         }
-
+    */
     }
 }

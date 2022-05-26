@@ -12,7 +12,7 @@ namespace EFCore
 {
     class Program
     {
-        static int _count;
+        //static int _count;
 
         static void Main(string[] args)
         {
@@ -89,7 +89,15 @@ namespace EFCore
             #endregion
 
             #region DataAnnotations
-            Atributos.Atributo();
+            //Atributos.Atributo();
+            #endregion
+
+            #region Funções
+            //Funcoes.FuncoesDeDatas();
+            //Funcoes.FuncaoLike();
+            //Funcoes.FuncaoDataLength();
+            //Funcoes.FuncaoProperty();
+            Funcoes.FuncaoCollate();
             #endregion
         }
 
@@ -117,7 +125,7 @@ namespace EFCore
 
         static void AplicarMigracaoEmTempoDeExecucao()
         {
-            EnsureDeleted();
+            //EnsureDeleted();
             using var db = new ApplicationContext();
             db.Database.Migrate();
         }
@@ -125,7 +133,7 @@ namespace EFCore
         #endregion
 
         #region Entity Framework
-        static void ScriptGeralDoBancoDeDados()
+        /*static void ScriptGeralDoBancoDeDados()
         {
             using var db = new ApplicationContext();
             var script = db.Database.GenerateCreateScript();
@@ -250,8 +258,8 @@ namespace EFCore
 
             db.SaveChanges();
 
-            /*var descricao = "Departamento Alterado";
-            db.Database.ExecuteSqlRaw("UPDATE Departamentos SET descricao={0} WHERE id=1", descricao);*/
+            //var descricao = "Departamento Alterado";
+            //db.Database.ExecuteSqlRaw("UPDATE Departamentos SET descricao={0} WHERE id=1", descricao);
 
             var descricao2 = "Teste' or 1='1";
             db.Database.ExecuteSqlRaw($"UPDATE Departamentos SET descricao='Ataque SQL Injection' WHERE descricao='{descricao2}'");
@@ -260,7 +268,7 @@ namespace EFCore
             {
                 Console.WriteLine($"Id: {departamento.Id}, Descricao: {departamento.Descricao}");
             }
-        }
+        }*/
         #endregion
     }
 }

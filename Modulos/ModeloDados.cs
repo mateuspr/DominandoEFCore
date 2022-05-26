@@ -10,6 +10,7 @@ namespace Curso.Modulos
 {
     public static class ModeloDados
     {
+        /*
         public static void Collations()
         {
             using var db = new ApplicationContext();
@@ -316,6 +317,6 @@ namespace Curso.Modulos
                 }
             }
         }
-
+    */
     }
 }

@@ -16,7 +16,7 @@ namespace Curso.Data
         public DbSet<Dictionary<string, object>> Configuracoes => Set<Dictionary<string, object>>("Configuracoes");
 
         #region Domain
-        public DbSet<Departamento> Departamentos { get; set; }
+        /*public DbSet<Departamento> Departamentos { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
         public DbSet<Estado> Estados { get; set; }
         public DbSet<Conversor> Conversores { get; set; }
@@ -28,7 +28,8 @@ namespace Curso.Data
         public DbSet<Instrutor> Instrutores { get; set; }
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Atributo> Atributos { get; set; }
-        public DbSet<Aeroporto> Aeroportos { get; set; }
+        public DbSet<Aeroporto> Aeroportos { get; set; }*/
+        public DbSet<Funcao> Funcoes { get; set; }
 
         #endregion
 
@@ -142,6 +143,14 @@ namespace Curso.Data
             });
             #endregion
 
+            #region Funções
+            modelBuilder.Entity<Funcao>(conf =>
+            {
+                conf.Property<string>("PropriedadeSombra")
+                    .HasColumnType("VARCHAR(100)")
+                    .HasDefaultValueSql("'Teste'");
+            });
+            #endregion
         }
 
         public override void Dispose()

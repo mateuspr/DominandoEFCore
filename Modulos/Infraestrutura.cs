@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Curso.Modulos
 {
     public static class Infraestrutura
-    {
+    {/*
         public static void ExecutarEstrategiaResiliencia()
         {
             using var db = new ApplicationContext();
@@ -21,9 +21,7 @@ namespace Curso.Modulos
 
                 transaction.Commit();
             });
-
         }
-
 
         public static void TempoComandoGeral()
         {
@@ -67,6 +65,6 @@ namespace Curso.Modulos
 
             var departamentos = db.Departamentos.Where(p => p.Id > 0).ToArray();
         }
+        */
     }
-
 }

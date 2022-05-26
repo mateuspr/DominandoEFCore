@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Curso.Modulos
 {
     public static class Atributos
-    {
+    {/*
         public static void Atributo()
         {
             using (var db = new Curso.Data.ApplicationContext())
@@ -26,5 +26,6 @@ namespace Curso.Modulos
                 db.SaveChanges();
             }
         }
+        */
     }
 }
