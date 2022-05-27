@@ -104,6 +104,15 @@ namespace EFCore
             //Interceptacao.TesteInterceptacao();
             //Interceptacao.TesteInterceptacaoSaveChanges();
             #endregion
+
+            #region Transações
+            //Transacoes.ComportamentoPadrao();
+            //Transacoes.GerenciandoTransacaoManualmente();
+            //Transacoes.ReverterTransacao();
+            //Transacoes.SalvarPontoTransacao();
+            //Transacoes.TransactionScope();
+            #endregion
+
         }
 
         #region Migrações

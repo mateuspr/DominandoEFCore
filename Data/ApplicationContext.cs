@@ -28,9 +28,9 @@ namespace Curso.Data
         public DbSet<Instrutor> Instrutores { get; set; }
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Atributo> Atributos { get; set; }
-        public DbSet<Aeroporto> Aeroportos { get; set; }*/
-        public DbSet<Funcao> Funcoes { get; set; }
-
+        public DbSet<Aeroporto> Aeroportos { get; set; }
+        public DbSet<Funcao> Funcoes { get; set; }*/
+        public DbSet<Livro> Livros { get; set; }
         #endregion
 
 
@@ -55,7 +55,7 @@ namespace Curso.Data
                           //.UseLazyLoadingProxies()
                           .EnableSensitiveDataLogging()
                           //.EnableDetailedErrors()
-                          .AddInterceptors(new Interceptadores.InterceptadorPersistencia())
+                          //.AddInterceptors(new Interceptadores.InterceptadorPersistencia())
                           .LogTo(Console.WriteLine, LogLevel.Information);
         }
 
@@ -128,7 +128,7 @@ namespace Curso.Data
 
             //modelBuilder.ApplyConfiguration(new ClienteConfiguration());
             //modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationContext).Assembly);
+            /*modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationContext).Assembly);
 
             modelBuilder.SharedTypeEntity<Dictionary<string, object>>("Configuracoes", b =>
             {
@@ -141,16 +141,16 @@ namespace Curso.Data
                 b.Property<string>("Valor")
                     .HasColumnType("VARCHAR(255)")
                     .IsRequired();
-            });
+            });*/
             #endregion
 
             #region Funções
-            modelBuilder.Entity<Funcao>(conf =>
+            /*modelBuilder.Entity<Funcao>(conf =>
             {
                 conf.Property<string>("PropriedadeSombra")
                     .HasColumnType("VARCHAR(100)")
                     .HasDefaultValueSql("'Teste'");
-            });
+            });*/
             #endregion
         }
 

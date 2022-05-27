@@ -8,7 +8,7 @@ namespace Curso.Modulos
 {
     public static class Funcoes
     {
-        public static void FuncaoCollate()
+        /*public static void FuncaoCollate()
         {
             using (var db = new ApplicationContext())
             {
@@ -152,5 +152,6 @@ namespace Curso.Modulos
 
             db.SaveChanges();
         }
+        */
     }
 }
