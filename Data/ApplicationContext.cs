@@ -15,13 +15,13 @@ namespace Curso.Data
 {
     public class ApplicationContext : DbContext
     {
-        private readonly StreamWriter _writer = new StreamWriter("LogEFCore.txt", append: true);
+        private readonly StreamWriter _writer = new("LogEFCore.txt", append: true);
         public DbSet<Dictionary<string, object>> Configuracoes => Set<Dictionary<string, object>>("Configuracoes");
 
         #region Domain
-        /*public DbSet<Departamento> Departamentos { get; set; }
+        public DbSet<Departamento> Departamentos { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
-        public DbSet<Estado> Estados { get; set; }
+        /*public DbSet<Estado> Estados { get; set; }
         public DbSet<Conversor> Conversores { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Ator> Atores { get; set; }
@@ -32,8 +32,8 @@ namespace Curso.Data
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Atributo> Atributos { get; set; }
         public DbSet<Aeroporto> Aeroportos { get; set; }
-        public DbSet<Funcao> Funcoes { get; set; }*/
-        public DbSet<Livro> Livros { get; set; }
+        public DbSet<Funcao> Funcoes { get; set; }
+        public DbSet<Livro> Livros { get; set; }*/
         #endregion
 
 
@@ -57,6 +57,7 @@ namespace Curso.Data
                           //.UseSqlServer(strConnection, p => p.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery))
                           //.UseLazyLoadingProxies()
                           .EnableSensitiveDataLogging()
+                          .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTrackingWithIdentityResolution) //Desabilitar o rastreamento
                           //.EnableDetailedErrors()
                           //.AddInterceptors(new Interceptadores.InterceptadorPersistencia())
                           .LogTo(Console.WriteLine, LogLevel.Information);
@@ -187,13 +188,13 @@ namespace Curso.Data
         }
 
         #region UDFs
-        private static MethodInfo _minhaFuncao = typeof(MinhasFuncoes)
+        private static readonly MethodInfo _minhaFuncao = typeof(MinhasFuncoes)
                     .GetRuntimeMethod("Left", new[] { typeof(string), typeof(int) });
 
-        private static MethodInfo _letrasMaiusculas = typeof(MinhasFuncoes)
+        private static readonly MethodInfo _letrasMaiusculas = typeof(MinhasFuncoes)
                     .GetRuntimeMethod(nameof(MinhasFuncoes.LetrasMaiusculas), new[] { typeof(string) });
 
-        private static MethodInfo _dateDiff = typeof(MinhasFuncoes)
+        private static readonly MethodInfo _dateDiff = typeof(MinhasFuncoes)
                     .GetRuntimeMethod(nameof(MinhasFuncoes.DateDiff), new[] { typeof(string), typeof(DateTime), typeof(DateTime) });
         #endregion
 

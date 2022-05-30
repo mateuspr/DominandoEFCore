@@ -119,6 +119,16 @@ namespace EFCore
             //UserDefinedFunction.DateDIFF();
             #endregion
 
+            #region Performance
+            //Performance.Setup();
+            //Performance.ConsultaRastreada();
+            //Performance.ConsultaNaoRastreada();
+            //Performance.ConsultaComResolucaoDeIdentidade();
+            //Performance.ConsultaCustomizada();
+            //Performance.ConsultaProjetadaERastreada();
+            //Performance.Inserir_200_Departamentos_Com_1MB();
+            Performance.ConsultaProjetada();
+            #endregion
         }
 
         #region Migrações

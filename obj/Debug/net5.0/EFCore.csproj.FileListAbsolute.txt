@@ -61,7 +61,6 @@ D:\EP\DominandoEFCore\obj\Debug\net5.0\EFCore.AssemblyInfo.cs
 D:\EP\DominandoEFCore\obj\Debug\net5.0\EFCore.csproj.CoreCompileInputs.cache
 D:\EP\DominandoEFCore\obj\Debug\net5.0\EFCore.csproj.CopyComplete
 D:\EP\DominandoEFCore\obj\Debug\net5.0\EFCore.dll
-D:\EP\DominandoEFCore\obj\Debug\net5.0\refint\EFCore.dll
 D:\EP\DominandoEFCore\obj\Debug\net5.0\EFCore.pdb
 D:\EP\DominandoEFCore\obj\Debug\net5.0\EFCore.genruntimeconfig.cache
 D:\EP\DominandoEFCore\obj\Debug\net5.0\ref\EFCore.dll
@@ -69,3 +68,4 @@ D:\EP\DominandoEFCore\bin\Debug\net5.0\Humanizer.dll
 D:\EP\DominandoEFCore\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 D:\EP\DominandoEFCore\bin\Debug\net5.0\Castle.Core.dll
 D:\EP\DominandoEFCore\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Proxies.dll
+D:\EP\DominandoEFCore\bin\Debug\net5.0\ref\EFCore.dll

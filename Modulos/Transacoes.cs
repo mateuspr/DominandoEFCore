@@ -9,6 +9,7 @@ namespace Curso.Modulos
 {
     public static class Transacoes
     {
+        /*
         public static void TransactionScope()
         {
             CadastrarLivro();
@@ -30,7 +31,7 @@ namespace Curso.Modulos
 
         public static void ConsultarAtualizar()
         {
-            using (var db = new Curso.Data.ApplicationContext())
+            using (var db = new ApplicationContext())
             {
                 var livro = db.Livros.FirstOrDefault(p => p.Id == 1);
                 livro.Autor = "Rafael Almeida";
@@ -40,7 +41,7 @@ namespace Curso.Modulos
 
         public static void CadastraLivroEnterprise()
         {
-            using (var db = new Curso.Data.ApplicationContext())
+            using (var db = new ApplicationContext())
             {
                 db.Livros.Add(
                     new Livro
@@ -54,7 +55,7 @@ namespace Curso.Modulos
 
         public static void CadastrarLivroDominandoEFCore()
         {
-            using (var db = new Curso.Data.ApplicationContext())
+            using (var db = new ApplicationContext())
             {
                 db.Livros.Add(
                     new Livro
@@ -70,7 +71,7 @@ namespace Curso.Modulos
         {
             CadastrarLivro();
 
-            using (var db = new Curso.Data.ApplicationContext())
+            using (var db = new ApplicationContext())
             {
                 using var transacao = db.Database.BeginTransaction();
 
@@ -195,7 +196,7 @@ namespace Curso.Modulos
 
         static void CadastrarLivro()
         {
-            using (var db = new Curso.Data.ApplicationContext())
+            using (var db = new ApplicationContext())
             {
                 db.Database.EnsureDeleted();
                 db.Database.EnsureCreated();
@@ -210,6 +211,6 @@ namespace Curso.Modulos
                 db.SaveChanges();
             }
         }
-
+        */
     }
 }
