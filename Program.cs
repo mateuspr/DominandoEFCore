@@ -113,6 +113,12 @@ namespace EFCore
             //Transacoes.TransactionScope();
             #endregion
 
+            #region  UDFs (Funções Definidas pelo Usuário)
+            //UserDefinedFunction.FuncaoLEFT();
+            //UserDefinedFunction.FuncaoDefinidaPeloUsuario();
+            //UserDefinedFunction.DateDIFF();
+            #endregion
+
         }
 
         #region Migrações
