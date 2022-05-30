@@ -9,7 +9,7 @@ namespace Curso.Modulos
 {
     class Performance
     {
-        public static void ConsultaRastreada()
+        /*public static void ConsultaRastreada()
         {
             using var db = new ApplicationContext();
 
@@ -121,5 +121,6 @@ namespace Curso.Modulos
                 return buffer;
             }
         }
+        */
     }
 }

@@ -19,9 +19,9 @@ namespace Curso.Data
         public DbSet<Dictionary<string, object>> Configuracoes => Set<Dictionary<string, object>>("Configuracoes");
 
         #region Domain
-        public DbSet<Departamento> Departamentos { get; set; }
+        /*public DbSet<Departamento> Departamentos { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
-        /*public DbSet<Estado> Estados { get; set; }
+        public DbSet<Estado> Estados { get; set; }
         public DbSet<Conversor> Conversores { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Ator> Atores { get; set; }
@@ -57,7 +57,7 @@ namespace Curso.Data
                           //.UseSqlServer(strConnection, p => p.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery))
                           //.UseLazyLoadingProxies()
                           .EnableSensitiveDataLogging()
-                          .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTrackingWithIdentityResolution) //Desabilitar o rastreamento
+                          //.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTrackingWithIdentityResolution) //Desabilitar o rastreamento
                           //.EnableDetailedErrors()
                           //.AddInterceptors(new Interceptadores.InterceptadorPersistencia())
                           .LogTo(Console.WriteLine, LogLevel.Information);
@@ -160,7 +160,7 @@ namespace Curso.Data
             #region  UDFs
             //MinhasFuncoes.RegistarFuncoes(modelBuilder);
 
-            modelBuilder
+            /*modelBuilder
                 .HasDbFunction(_minhaFuncao)
                 .HasName("LEFT")
                 .IsBuiltIn();
@@ -183,7 +183,15 @@ namespace Curso.Data
                     return new SqlFunctionExpression("DATEDIFF", argumentos, false, new[] { false, false, false }, typeof(int), null);
 
                 })
-                .IsBuiltIn();
+                .IsBuiltIn();*/
+            #endregion
+
+            #region  Migrations
+            modelBuilder.Entity<Pessoa>(conf =>
+            {
+                conf.HasKey(p => p.Id);
+                conf.Property(p => p.Nome).HasMaxLength(60).IsUnicode(false);
+            });
             #endregion
         }
 

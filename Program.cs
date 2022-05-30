@@ -16,8 +16,8 @@ namespace EFCore
 
         static void Main(string[] args)
         {
-            //EnsureCreated();
-            //EnsureDeleted();
+            //Base.EnsureCreated();
+            //Base.EnsureDeleted();
             //GapEnsureCreated();
             //HealthCheckDatabaseV1();
             //HealthCheckDatabaseV2();
@@ -31,13 +31,6 @@ namespace EFCore
 
             //ExecuteSQL();
             //SqlInjection();
-
-            //Migrações
-            //AplicarMigracaoEmTempoDeExecucao();
-            //ListarMigracoes();
-
-            //ScriptGeralDoBancoDeDados();
-
 
             #region Tipos de Carregamento
             //TiposCarregamento.CarregamentoAdiantado();
@@ -113,7 +106,7 @@ namespace EFCore
             //Transacoes.TransactionScope();
             #endregion
 
-            #region  UDFs (Funções Definidas pelo Usuário)
+            #region UDFs (Funções Definidas pelo Usuário)
             //UserDefinedFunction.FuncaoLEFT();
             //UserDefinedFunction.FuncaoDefinidaPeloUsuario();
             //UserDefinedFunction.DateDIFF();
@@ -127,62 +120,18 @@ namespace EFCore
             //Performance.ConsultaCustomizada();
             //Performance.ConsultaProjetadaERastreada();
             //Performance.Inserir_200_Departamentos_Com_1MB();
-            Performance.ConsultaProjetada();
+            //Performance.ConsultaProjetada();
+            #endregion
+
+            #region Migrations
+            //Curso.Modulos.Migrations.AplicarMigracaoEmTempoDeExecucao();
+            //Curso.Modulos.Migrations.ListarMigracoes();
+            //Curso.Modulos.Migrations.ScriptGeralDoBancoDeDados();
             #endregion
         }
 
-        #region Migrações
-        //Recuperar Todas Migrations pelo prompt
-        //dotnet ef migrations list --context ApplicationContext
-        //Adicionar Migrations
-        //dotnet ef migrations add IncluirRGFuncionario --context ApplicationContext
-        //Atualizar o banco
-        //dotnet ef database update --context ApplicationContext
-        static void ListarMigracoes()
-        {
-            using var db = new ApplicationContext();
-            //var migracoes = db.Database.GetMigrations();//TodasMigrações
-            //var migracoes = db.Database.GetAppliedMigrations();//Migrações Aplicadas
-            var migracoes = db.Database.GetPendingMigrations();//Migrações Pendentes
-
-            Console.WriteLine($"Total: {migracoes.Count()}");
-
-            foreach (var migracao in migracoes)
-            {
-                Console.WriteLine($"Migração:{migracao}");
-            }
-        }
-
-        static void AplicarMigracaoEmTempoDeExecucao()
-        {
-            //EnsureDeleted();
-            using var db = new ApplicationContext();
-            db.Database.Migrate();
-        }
-
-        #endregion
-
         #region Entity Framework
-        /*static void ScriptGeralDoBancoDeDados()
-        {
-            using var db = new ApplicationContext();
-            var script = db.Database.GenerateCreateScript();
-
-            Console.WriteLine(script);
-        }
-
-        static void EnsureCreated()
-        {
-            using var db = new ApplicationContext();
-            db.Database.EnsureCreated();
-        }
-
-        static void EnsureDeleted()
-        {
-            using var db = new ApplicationContext();
-            db.Database.EnsureDeleted();
-        }
-
+        /*
         static void GapEnsureCreated()
         {
             using var db1 = new ApplicationContext();

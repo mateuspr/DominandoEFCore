@@ -8,7 +8,7 @@ namespace Curso.Domain
         public string Nome { get; set; }
     }
 
-    public class Instrutor : Pessoa
+    /*public class Instrutor : Pessoa
     {
         public DateTime Desde { get; set; }
         public string Tecnologia { get; set; }
@@ -18,5 +18,5 @@ namespace Curso.Domain
     {
         public int Idade { get; set; }
         public DateTime DataContrato { get; set; }
-    }
+    }*/
 }

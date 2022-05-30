@@ -13,7 +13,7 @@ namespace Curso.Configurations
         }
     }
 
-    public class InstrutorConfiguration : IEntityTypeConfiguration<Instrutor>
+    /*public class InstrutorConfiguration : IEntityTypeConfiguration<Instrutor>
     {
         public void Configure(EntityTypeBuilder<Instrutor> builder)
         {
@@ -27,5 +27,5 @@ namespace Curso.Configurations
         {
             builder.ToTable("Alunos");
         }
-    }
+    }*/
 }
