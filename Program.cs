@@ -128,6 +128,11 @@ namespace EFCore
             //Curso.Modulos.Migrations.ListarMigracoes();
             //Curso.Modulos.Migrations.ScriptGeralDoBancoDeDados();
             #endregion
+
+            #region Acessando outros Bancos de Dados
+            //OutrosBancosDeDados.SQLLite();
+            //OutrosBancosDeDados.InMemory();
+            #endregion
         }
 
         #region Entity Framework

@@ -19,6 +19,7 @@ namespace Curso.Data
         public DbSet<Dictionary<string, object>> Configuracoes => Set<Dictionary<string, object>>("Configuracoes");
 
         #region Domain
+        public DbSet<Pessoa> Pessoas { get; set; }
         /*public DbSet<Departamento> Departamentos { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
         public DbSet<Estado> Estados { get; set; }
@@ -27,7 +28,6 @@ namespace Curso.Data
         public DbSet<Ator> Atores { get; set; }
         public DbSet<Filme> Filmes { get; set; }
         public DbSet<Documento> Documentos { get; set; }
-        public DbSet<Pessoa> Pessoas { get; set; }
         public DbSet<Instrutor> Instrutores { get; set; }
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Atributo> Atributos { get; set; }
@@ -57,6 +57,8 @@ namespace Curso.Data
                           //.UseSqlServer(strConnection, p => p.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery))
                           //.UseLazyLoadingProxies()
                           .EnableSensitiveDataLogging()
+                          //.UseSqlite("Data source=Sqlite.db")
+                          //.UseInMemoryDatabase(databaseName: "TesteMemory")
                           //.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTrackingWithIdentityResolution) //Desabilitar o rastreamento
                           //.EnableDetailedErrors()
                           //.AddInterceptors(new Interceptadores.InterceptadorPersistencia())
